@@ -26,7 +26,7 @@ frankenphp fmt vendor/laravel/octane/src/Commands/stubs/Caddyfile --overwrite
 
 ```bash
 COPY composer composer.json composer.lock artisan ./
-composer install --no-dev --no-scripts --prefer-dist --no-interaction --optimize-autoloader
+composer install --no-dev --no-scripts --prefer-dist --no-interaction --optimize-autoloader --ignore-platform-reqs
 
 # Install dependencies (cached if files don't change)
 ```
