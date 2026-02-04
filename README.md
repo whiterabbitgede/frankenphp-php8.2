@@ -1,6 +1,12 @@
 
 ```bash
-php artisan octane:frankenphp --host=0.0.0.0
+composer require laravel/octane
+
+php artisan octane:install --server=frankenphp
+
+frankenphp fmt vendor/laravel/octane/src/Commands/stubs/Caddyfile --overwrite
+
+php artisan octane:frankenphp --host=0.0.0.0 --port=8080
 
 # Local: http://0.0.0.0:8000
 ```
@@ -13,7 +19,7 @@ php artisan octane:frankenphp --host=0.0.0.0 --port=80 --caddyfile=/app/Caddyfil
 
 ```bash
 frankenphp fmt /app/Caddyfile --overwrite
-frankenphp fmt /app/vendor/laravel/octane/src/Commands/stubs/Caddyfile --overwrite
+frankenphp fmt vendor/laravel/octane/src/Commands/stubs/Caddyfile --overwrite
 
 # WARN  Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies.
 ```
