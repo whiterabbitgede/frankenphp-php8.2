@@ -86,8 +86,15 @@ RUN composer create-project laravel/laravel example-app "10.*" && \
 
 
 WORKDIR /applaravel/example-app
+
+RUN mkdir -p storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache vendor /config /data .env
+
 #USER www-data
 EXPOSE 8080
+
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD wget -qO- http://127.0.0.1:8080/health || exit 1
 
 # php artisan --version
 # # or
